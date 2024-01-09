@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo list</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h3 class="mb-4">Todo List</h3>
+      <div class="row mb-3">
+        <div class="col-4">
+          <input
+            placeholder="Todo name"
+            class="form-control js-name-input name-input"
+            required
+          />
+          <div class="invalid-feedback">Please provide a todo name.</div>
+        </div>
+        <div class="col-4">
+          <input
+            type="date"
+            class="form-control js-due-date-input due-date-input"
+            required
+          />
+          <div class="invalid-feedback">Please provide a due date.</div>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-primary js-add-todo-button">Add</button>
+        </div>
+      </div>
+      <div class="js-todo-list todo-grid"></div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="editModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Todo</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <input
+              id="editName"
+              class="form-control mb-3"
+              placeholder="Edit Todo name"
+              required
+            />
+            <input id="editDueDate" type="date" class="form-control" required />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="saveEditedTodo()"
+            >
+              Save changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="12-todo.js"></script>
+  </body>
+</html>
